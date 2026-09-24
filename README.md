@@ -11,9 +11,11 @@ A simple, friendly password generator with a Duolingo-inspired UI.
 
 ## Stack
 
-React + TypeScript + Vite. Node 24 (pinned via `.tool-versions`), Yarn Classic.
-Path aliases, barrel exports, husky + commitlint + eslint + prettier — same
-project conventions as the sibling `smarthome` app.
+React + TypeScript + Vite. Node 24 (pinned via `.tool-versions`), Yarn Classic
+managed by [Corepack](https://nodejs.org/api/corepack.html) — the exact yarn
+version is pinned in `package.json` (`packageManager`), so no global yarn install
+is required. Path aliases, barrel exports, husky + commitlint + eslint + prettier
+— same project conventions as the sibling `smarthome` app.
 
 ## Project structure
 
@@ -38,6 +40,7 @@ src/
 
 ```bash
 asdf install          # installs Node 24 from .tool-versions
+corepack enable       # activates the yarn version pinned in package.json
 yarn install
 yarn start            # http://localhost:3000
 ```

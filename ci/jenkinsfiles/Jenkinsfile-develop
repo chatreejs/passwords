@@ -24,8 +24,12 @@ pipeline {
           args '-v $PWD:/workspace -w /workspace'
         }
       }
+      environment {
+        COREPACK_ENABLE_DOWNLOAD_PROMPT = '0'
+      }
       steps {
-        sh 'yarn'
+        sh 'corepack enable'
+        sh 'yarn install --frozen-lockfile'
         sh 'yarn lint'
       }
     }

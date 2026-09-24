@@ -12,10 +12,13 @@ and Duolingo-inspired.
 
 ## Commands
 
-Package manager is **yarn** (see `yarn.lock`, Dockerfile). Node 24 is pinned via
-`.tool-versions` (asdf).
+Package manager is **yarn** (Classic), managed by **Corepack** — the exact
+version is pinned in `package.json` (`packageManager`). Node 24 is pinned via
+`.tool-versions` (asdf). Run `corepack enable` once after installing Node so the
+`yarn` command resolves; no global yarn install is needed.
 
 ```bash
+corepack enable           # one-time: activate the pinned yarn
 yarn                      # install dependencies
 yarn start                # dev server on :3000
 yarn build                # tsc type-check + vite build -> build/
