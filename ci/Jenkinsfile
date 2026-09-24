@@ -17,8 +17,16 @@ pipeline {
             script: '''grep '"version"' package.json | head -1 | sed -E 's/.*"version"[[:space:]]*:[[:space:]]*"([^"]+)".*/\\1/' '''
           ).trim()
 
+          // BRANCH_NAME is only set on Multibranch Pipeline jobs; on a plain
+          // Pipeline job it is null, so fall back to GIT_BRANCH (e.g.
+          // "origin/develop") or ask git directly. Strip any remote prefix.
+          env.GIT_REF = (env.BRANCH_NAME ?: env.GIT_BRANCH ?: sh(
+            returnStdout: true,
+            script: 'git rev-parse --abbrev-ref HEAD'
+          ).trim()).replaceFirst(/^origin\//, '')
+
           // On develop, publish a pre-release build; on main/master, publish the release version.
-          if (env.BRANCH_NAME == 'develop') {
+          if (env.GIT_REF == 'develop') {
             def now = new Date()
             env.BUILD_DATE = now.format("yyyyMMdd")
             env.BUILD_VERSION = "${VERSION}-develop.${BUILD_DATE}.${BUILD_NUMBER}"
