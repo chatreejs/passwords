@@ -1,0 +1,75 @@
+.generator {
+  width: 100%;
+  /* Keep it narrow so it never stretches on ultrawide displays. */
+  max-width: 440px;
+  background: var(--card);
+  border: 2px solid var(--line);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 2px 0 var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.generator__header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.generator__logo {
+  font-size: 38px;
+  line-height: 1;
+  color: var(--green);
+}
+
+.generator__title {
+  margin: 6px 0 0;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.generator__subtitle {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* Duolingo-style pressable button */
+.generate-button {
+  border: none;
+  background: var(--green);
+  color: #fff;
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 15px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  box-shadow: 0 4px 0 var(--green-dark);
+  transition: transform 0.05s ease, box-shadow 0.05s ease;
+}
+
+.generate-button:active:not(:disabled) {
+  transform: translateY(4px);
+  box-shadow: 0 0 0 var(--green-dark);
+}
+
+.generate-button:disabled {
+  background: var(--line);
+  color: var(--muted);
+  box-shadow: 0 4px 0 #d0d0d0;
+  cursor: not-allowed;
+}
+
+@media (max-width: 380px) {
+  .generator {
+    padding: 20px;
+    border-radius: 20px;
+  }
+}

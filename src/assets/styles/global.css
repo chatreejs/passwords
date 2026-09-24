@@ -1,0 +1,45 @@
+:root {
+  --green: #58cc02;
+  --green-dark: #58a700;
+  --green-soft: #d7ffb8;
+  --blue: #1cb0f6;
+  --orange: #ff9600;
+  --red: #ff4b4b;
+  --ink: #3c3c3c;
+  --muted: #afafaf;
+  --line: #e5e5e5;
+  --bg: #f7f7f7;
+  --card: #ffffff;
+  --radius: 16px;
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Nunito', ui-rounded, 'SF Pro Rounded', 'Segoe UI', system-ui,
+    -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Respect notches and keep comfortable gutters on phones. */
+  padding: max(16px, env(safe-area-inset-top)) 16px
+    max(16px, env(safe-area-inset-bottom));
+}

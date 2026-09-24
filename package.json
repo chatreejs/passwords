@@ -1,0 +1,58 @@
+{
+  "name": "passwords",
+  "description": "A simple, friendly password generator with a Duolingo-inspired UI.",
+  "version": "0.1.0",
+  "authors": [
+    {
+      "name": "Chanon Treemeth",
+      "email": "chanont@set.or.th"
+    }
+  ],
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "packageManager": "yarn@1.22.22",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "start": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "check-types": "tsc --noemit",
+    "eslint": "eslint",
+    "lint": "npm run eslint && npm run check-types",
+    "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json}\"",
+    "format:write": "prettier --write \"**/*.{js,jsx,ts,tsx,json}\"",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.6.0",
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "@eslint/compat": "^1.2.0",
+    "@eslint/js": "^9.12.0",
+    "@types/node": "^22.10.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "9.12.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.37.1",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.12",
+    "globals": "^15.11.0",
+    "husky": "^9.1.6",
+    "prettier": "^3.3.3",
+    "typescript": "~5.6.3",
+    "typescript-eslint": "^8.8.1",
+    "vite": "^5.4.11",
+    "vite-tsconfig-paths": "^5.1.0"
+  }
+}

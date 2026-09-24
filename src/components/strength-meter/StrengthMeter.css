@@ -1,0 +1,55 @@
+.strength {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.strength__bars {
+  display: flex;
+  gap: 6px;
+  flex: 1;
+}
+
+.strength__bars span {
+  flex: 1;
+  height: 8px;
+  border-radius: 99px;
+  background: var(--line);
+  transition: background 0.2s ease;
+}
+
+.strength__label {
+  font-weight: 800;
+  font-size: 13px;
+  color: var(--muted);
+  min-width: 52px;
+  text-align: right;
+}
+
+/* Fill the bars up to the current level, tinted by strength color. */
+.strength--1 .strength__bars span:nth-child(-n + 1),
+.strength--2 .strength__bars span:nth-child(-n + 2),
+.strength--3 .strength__bars span:nth-child(-n + 3),
+.strength--4 .strength__bars span:nth-child(-n + 4) {
+  background: currentColor;
+}
+
+.strength--1 {
+  color: var(--red);
+}
+.strength--2 {
+  color: var(--orange);
+}
+.strength--3 {
+  color: var(--blue);
+}
+.strength--4 {
+  color: var(--green);
+}
+
+.strength--1 .strength__label,
+.strength--2 .strength__label,
+.strength--3 .strength__label,
+.strength--4 .strength__label {
+  color: currentColor;
+}
