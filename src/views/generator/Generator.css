@@ -2,6 +2,9 @@
   width: 100%;
   /* Keep it narrow so it never stretches on ultrawide displays. */
   max-width: 440px;
+  /* Sit above the full-screen entropy background layer. */
+  position: relative;
+  z-index: 1;
   background: var(--card);
   border: 2px solid var(--line);
   border-radius: 24px;

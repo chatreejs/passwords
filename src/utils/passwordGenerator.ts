@@ -1,4 +1,5 @@
 import { CharacterType, PasswordOptions } from '@interfaces';
+import { drawEntropy } from './entropyPool';
 
 export const CHAR_SETS: Record<CharacterType, string> = {
   uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
@@ -25,7 +26,10 @@ const secureIndex = (max: number): number => {
   let value = 0;
   do {
     crypto.getRandomValues(buffer);
-    value = buffer[0];
+    // Mix in harvested mouse entropy. XOR with an independent value is a
+    // bijection over [0, 2^32), so the crypto source stays uniform and the
+    // rejection sampling below remains modulo-bias free.
+    value = (buffer[0] ^ drawEntropy()) >>> 0;
   } while (value >= limit);
   return value % max;
 };
