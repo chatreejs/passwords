@@ -45,7 +45,7 @@ export default defineConfig(({ mode }) => ({
   build: {
     outDir: 'build',
   },
-  base: '/passwords',
+  base: '/passwords/',
   plugins: [react(), viteTsconfigPaths(), localConfigPlugin(mode)],
   server: {
     port: 3000,
