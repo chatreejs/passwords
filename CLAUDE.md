@@ -49,9 +49,9 @@ styling (no UI framework). State is local component state via a custom hook — 
 Redux/router needed for a single-screen app.
 
 **Path aliases** (defined in `tsconfig.json`, resolved by `vite-tsconfig-paths`):
-`@components`, `@views`, `@hooks`, `@interfaces`, `@enums`, `@utils`. Each of
-these directories has an `index.ts` barrel — import from the alias root (e.g.
-`import { PasswordOutput } from '@components'`), not deep paths.
+`@components`, `@config`, `@views`, `@hooks`, `@interfaces`, `@enums`, `@utils`.
+Each of these directories has an `index.ts` barrel — import from the alias root
+(e.g. `import { PasswordOutput } from '@components'`), not deep paths.
 
 **Directory roles:**
 
@@ -67,6 +67,13 @@ these directories has an `index.ts` barrel — import from the alias root (e.g.
 - `interfaces/` — TypeScript domain types (`PasswordOptions`, `PasswordStrength`,
   `CharacterType`).
 - `enums/` — shared enums (`StrengthLevel`).
+- `config/` (under `src/`) — runtime config accessor. `Config` reads
+  `globalThis.__CONFIG__` (typed as `AppConfig`), populated at load time by an
+  external `/config.js`. In dev, a Vite `serve`-only plugin serves `/config.js`
+  from `config/web/config.<mode>.js` (`yarn start` → `config.local.js`,
+  `yarn start:develop` → `config.develop.js`); only `config.example.js` is
+  committed. In production the deploy injects its own `config.js` — it is never
+  part of `vite build`.
 
 **Styling:** each component owns a sibling `.css` file using BEM-ish class names;
 `src/assets/styles/global.css` holds design tokens (CSS custom properties) and

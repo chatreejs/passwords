@@ -17,6 +17,7 @@
   },
   "scripts": {
     "start": "vite",
+    "start:develop": "vite --mode develop",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "check-types": "tsc --noemit",

@@ -24,6 +24,7 @@
     "types": ["node", "vite/client"],
     "paths": {
       "@components": ["./src/components"],
+      "@config": ["./src/config"],
       "@views": ["./src/views"],
       "@hooks": ["./src/hooks"],
       "@interfaces": ["./src/interfaces"],
